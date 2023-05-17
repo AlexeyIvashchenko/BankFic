@@ -1,10 +1,12 @@
 from datetime import datetime
 
 
+# получает дату в переданном формате
 def take_the_date(transfer_info):
     return transfer_info['date']
 
 
+# получает дату в правильном формате
 def give_the_right_date(transfer_info):
     date = take_the_date(transfer_info)
     reversed_date = ''
@@ -17,11 +19,13 @@ def give_the_right_date(transfer_info):
     return date
 
 
+# отрезает лишнее от даты
 def change_the_date(transfer_info):
     transfer_info['date'] = give_the_right_date(transfer_info)
     return transfer_info
 
 
+# переводит отправителя, дату и получателя в нужный формат
 def get_the_transfer_info(transfers_full_info):
     needed_keys = ["date", "description", "from", "to", "operationAmount"]
     transfer_info = {}
@@ -51,6 +55,7 @@ def get_the_transfer_info(transfers_full_info):
         return transfer_info
 
 
+# маскирует счёт отправителя
 def get_the_right_from(transfer_info):
     from_point = transfer_info['from']
     right_from_point = ''
@@ -70,6 +75,7 @@ def get_the_right_from(transfer_info):
     return transfer_info
 
 
+# маскирует счёт получателя
 def get_the_right_to(transfer_info):
     to_point = transfer_info['to']
     right_to_point = ''
