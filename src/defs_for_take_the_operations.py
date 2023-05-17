@@ -1,9 +1,10 @@
-def get_transfer(list_of_transfers, index):
-    return list_of_transfers[index]
+from datetime import datetime
 
 
 def sort_the_transfers(transfers_info):
-    needed_key = ['date']
-    date_info = {key: transfers_info[key] for key in needed_key}
-    sorted_transfers = dict(sorted(date_info))
-    return sorted_transfers
+    sorted_lst = sorted(
+        (item for item in transfers_info if 'date' in item),
+        key=lambda x: datetime.strptime(x['date'], '%d-%m-%Y'),
+        reverse=True
+    )
+    return sorted_lst
