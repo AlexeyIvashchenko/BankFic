@@ -1,9 +1,13 @@
 import json
+import os
 from defs_for_sorting import get_the_transfer_info
 from defs_for_take_the_operations import sort_the_transfers
 
+# Получение абсолютного пути к файлу operations.json
+file_path = os.path.join(os.getcwd(), 'operations.json')
+
 # распаковал json в список для удобства
-with open('D:\Python Projects\BankFic\operations.json') as file:
+with open(file_path) as file:
     transfers = json.load(file)
 
 # создал словарь только с нужной информацией
