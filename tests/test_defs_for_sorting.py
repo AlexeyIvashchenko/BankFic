@@ -1,6 +1,7 @@
-from datetime import datetime
-import pytest
-from defs_for_take_the_operations import sort_the_transfers
+import sys
+
+sys.path.append('../src')
+
 from defs_for_sorting import (
     take_the_date,
     give_the_right_date,
@@ -83,5 +84,3 @@ def test_get_the_transfer_info():
         }
     }
     assert get_the_transfer_info(transfers_full_info) == expected_result
-
-  
